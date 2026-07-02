@@ -87,6 +87,7 @@ ol {
   flex-direction: column;
   justify-content: start;
   gap: 5px;
+  border: 0;
 }
 
 .search-form__fieldset-title {
@@ -118,7 +119,7 @@ ol {
 
 .content__list-container {
   height: 298px;
-  overflow: scroll;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -171,4 +172,118 @@ ol {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   overflow: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 5px;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid rgba(255, 255, 255, 1);
+}
+
+.search-form__fieldset:not(:first-of-type) .search-form__label:hover {
+  text-decoration: underline;
+}
+
+.search-form__textfield {
+  width: 225px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 1);
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-left: none;
+  border-right: none;
+  border-color: rgba(255, 255, 255, 1);
+  background-color: transparent;
+  appearance: none;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__textfield:active {
+  outline: none;
+}
+
+.search-form__textfield::placeholder {
+  color: rgba(255 255 255 / 0.7);
+}
+
+.search-form__pseudo-checkbox {
+  width: 19px;
+  height: 19px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  padding: 1px;
+}
+
+.search-form__pseudo-checkbox::after {
+  content: "";
+  display: block;
+  background-color: rgba(255, 255, 255, 1);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  opacity: 1;
+}
+
+.button {
+  border: 1px solid rgba(255, 255, 255, 1);
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  background-color: transparent;
+  min-height: 34px;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  background-color: rgba(84, 80, 80, 1);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 1);
+}
+
+.search-form__submit-button {
+  width: 194px;
+  align-self: flex-end;
+}
+
+.more-button {
+  width: 100%;
+  flex-shrink: 0;
 }
